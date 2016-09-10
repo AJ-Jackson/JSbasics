@@ -1,0 +1,19 @@
+var profession = prompt("What do you do for a living?", "ex: doctor, programmer, etc");
+	alert("Wow, that's really cool! I hope you like being a " + profession + ".");
+
+var hobby = prompt("What do you do for fun?", "play games, write, etc");
+var duration = prompt("Man, don't you wish you could " + hobby + " all the time?", "y or n");
+
+if (duration == "y"){
+	
+	alert("You and me both, my friend. You and me both!");
+}
+else {
+		var really = prompt("Wow, really? You don't want to " + hobby + " all the time? You must REALLY enjoy being a " + profession + ", huh?", "y or n");
+  			if (really == "y"){
+				alert("You're one of the few, my friend. Good Job!");
+    		}
+  			else {
+              alert("Oh. Perhaps maybe you should find a better hobby. I'm just saying :)"); 
+       		}
+}
