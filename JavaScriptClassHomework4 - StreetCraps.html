@@ -1,0 +1,74 @@
+<script>
+
+var playerBet = prompt("Place you bet", "$1-$100");
+var computerBet = parseInt(playerBet);
+alert("You bet " + playerBet + " dollars, and the Computer bets " + computerBet + " dollars.");
+var totalBet = parseInt(playerBet) + parseInt(computerBet);
+
+
+
+//Whoever rolls highest rolls first
+function firstRoller(){
+
+	var player1 = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+	var computerPlayer = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+	 
+	alert("You rolled " + player1 + ", and the Computer rolled " + computerPlayer + ".");
+	 
+	if (player1 > computerPlayer){
+		alert("Player One Goes First!");
+      
+			//Game Begins here for player 1
+      		alert("Click to roll");
+      		var roll1 = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+      		alert("You rolled " + roll1 + ".");
+      		if(roll1 == 7 || roll1 == 11){
+        			alert("Congrats! You automatically won the total bet of " + totalBet + " dollars!");
+      		}
+      		else{ 
+              alert("Keep rolling until you hit " + roll1 + " again.");
+              alert("But if you roll a 7 or 11, you will lose.");
+              alert("Start rolling!");
+              
+              var roll2 = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+    		  alert("You rolled " + roll2 + ".");
+              
+              if(roll2 != roll1){rollAgain();} 
+              else if (roll2 == roll1){alert("Congrats! You rolled " + roll2 + ". You won the total bet of " + totalBet + " dollars!");}
+              else if (roll2 == 7 || roll1 == 11){alert("Ouch! You rolled " + roll2 + ". Computer wins the total bet of" + totalBet + " dollars!");}
+            }
+    }
+	else{
+      	alert("Computer Goes First!");
+  
+      //Game Begins here for Computer
+      		alert("The Computer will now roll.");
+      		var roll3 = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+      		if(roll3 == 7 || roll3 == 11){
+        			alert("Wow! The Computer rolled " + roll3 + ". Computer wins the total bet of " + totalBet + " dollars!");
+      		}
+      		else{ 
+              alert("The Computer rolled " + roll3 + ". It will keep rolling until it hits " + roll3 + " again.");
+              alert("But if it rolls a 7 or 11, it will lose, and you will win the total bet.");
+              alert("Start rolling!");
+              var roll4 = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+              
+              alert("Computer rolled " + roll4 + ".");
+              
+              if(roll4 != roll3){rollAgain();} 
+              else if (roll4 == roll3){alert("The Computer rolled " + roll4 + ". The Computer won the total bet of " + totalBet + " dollars!");}
+              else if (roll4 == 7 || roll3 == 11){alert("Ouch! You rolled " + roll4 + ". Computer wins the total bet of" + totalBet + " dollars!");}
+      
+	}
+
+}
+}
+alert("Roll dice to decide who goes first");
+
+function rollAgain(){
+  var keepRolling = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+}
+
+firstRoller();
+
+</script>
