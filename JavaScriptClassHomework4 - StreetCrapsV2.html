@@ -1,0 +1,94 @@
+<script>
+
+//Functions needed for the game.
+function playerRollAgain(){
+    var playerRoll2 = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+  
+    if (playerRoll2 == 7){
+            alert("Sorry! You rolled 7. The computer wins " + totalBet + " dollars!");
+    } 
+    else if (playerRoll2 == 11){
+            alert("Sorry! You rolled 11. The computer wins " + totalBet + " dollars!");
+    } 
+    else if (playerRoll2 == playerRoll1){
+            alert("Congrats! You rolled " + playerRoll1 + ". You win " + totalBet + " dollars!");        
+    }
+    else if (playerRoll2 != playerRoll1){
+            alert(playerRoll2);
+            playerRollAgain();
+    }
+}
+
+function computerRollAgain(){
+    var computerRoll2 = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+  
+    if (computerRoll2 == 7){
+            alert("Aww! Computer rolled 7. You win " + totalBet + " dollars!");
+    } 
+    else if (computerRoll2 == 11){
+            alert("Aww! Computer rolled 11. You win " + totalBet + " dollars!");
+    } 
+    else if (computerRoll2 == computerRoll1){
+            alert("Wow! The Computer rolled " + computerRoll1 + ". Computer wins " + totalBet + " dollars!");        
+    }
+    else if (computerRoll2 != computerRoll1){
+            alert(computerRoll2);
+            computerRollAgain();
+    }
+}
+
+
+//Both the Player and the Comnputer place their bets here.
+var playerBet = prompt("Place you bet", "$1-$100");
+var computerBet = parseInt(playerBet);
+alert("You bet " + playerBet + " dollars, and the Computer bets " + computerBet + " dollars.");
+var totalBet = parseInt(playerBet) + parseInt(computerBet);
+alert("The total bet is " + totalBet + " dollars.");
+
+
+
+//Whoever rolls highest gets to roll first for the money.
+alert("Roll dice to decide who goes first.");
+
+
+var player1 = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+var computerPlayer = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+     
+alert("You rolled " + player1 + ", and the Computer rolled " + computerPlayer + ".");
+     
+    if (player1 > computerPlayer){
+            alert("Player One Goes First!");
+//The game begins here for player 1
+            alert("Click again to roll.");
+            var playerRoll1 = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+            alert("You rolled " + playerRoll1 + ".");
+                        if(playerRoll1 == 7 || playerRoll1 == 11){
+                                alert("Congrats! You automatically won the total bet of " + totalBet + " dollars!");
+                        }
+                        else{ 
+                                alert("Keep rolling until you hit " + playerRoll1 + " again.");
+                                alert("But if you roll a 7 or 11, you will lose.");
+                                alert("Click again to roll.");
+                          
+                                playerRollAgain();
+                        }
+    }
+
+    else {
+            alert("Computer Goes First!");
+///The game begins here for pthe computer.
+            alert("The Computer will now roll.");
+            var computerRoll1 = Math.floor((Math.random() * 6) + 1) + Math.floor((Math.random() * 6) + 1);
+                        if(computerRoll1 == 7 || computerRoll1 == 11){
+                                alert("Wow! The Computer rolled " + computerRoll1 + ". Computer wins the total bet of " + totalBet + " dollars!");
+                        }
+                        else{ 
+                                alert("The Computer rolled " + computerRoll1 + ". It will keep rolling until it hits " + computerRoll1 + " again.");
+                                alert("But if it rolls a 7 or 11, the Computer will lose, and you will win the total bet.");
+                                alert("The Computer will now roll again.");
+                          
+                                computerRollAgain();                        
+                        }
+    } 
+
+</script>
